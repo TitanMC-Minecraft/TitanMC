@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تایتان ام سی | سرور ماینکرفت جاوا</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;
+font-family:Tahoma,Arial;
+color:white;text-align:center;
+background:radial-gradient(circle,#003254,#001c30 50%,#050b10);
+display:flex;align-items:center;justify-content:center
+}
+.page{display:none;width:90%;max-width:600px}
+.active{display:block}
+h1{font-size:clamp(32px,7vw,60px);margin:0 0 15px}
+h1 span{color:#4bbcff}
+p{color:#b8d3e3}
+.line{width:90px;height:4px;background:#1598dc;margin:25px auto;box-shadow:0 0 20px #1598dc}
+button,a{
+display:inline-block;
+padding:13px 25px;
+margin:8px;
+border:1px solid #258fc5;
+border-radius:12px;
+background:linear-gradient(135deg,#003254,#0075b5);
+color:white;
+font: bold 15px Tahoma;
+text-decoration:none;
+cursor:pointer
+}
+button:hover,a:hover{background:#0095df}
+.ipbox{
+display:flex;gap:7px;align-items:center;
+padding:7px;margin:12px auto;
+background:#003254aa;border:1px solid #258fc5;border-radius:12px
+}
+.ip{
+flex:1;direction:ltr;
+font:13px Arial;
+overflow:hidden;white-space:nowrap
+}
+.copy{margin:0;padding:10px}
+.ok{background:#159c68!important}
+.option{
+display:block;width:100%;margin:12px 0
+}
+.big{
+font:bold clamp(22px,5vw,38px) Arial;
+direction:ltr;
+padding:25px;
+background:#003254aa;
+border:1px solid #258fc5;
+border-radius:15px
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحه اصلی -->
+<div id="home" class="page active">
+
+<h1>تایتان ام سی <span>| TitanMC</span></h1>
+<p>تایتان ام سی | سرور ماینکرفت جاوا</p>
+<div class="line"></div>
+
+<a href="https://rubika.ir/Titan_MC" target="_blank">
+کانال روبیکا
+</a>
+
+<div class="ipbox">
+<div class="ip">titanmc-srv-sever.play.mihancraft.com:25566</div>
+<button class="copy" onclick="copyIP()">کپی IP</button>
+</div>
+
+<button onclick="page('support')">پشتیبانی</button>
+
+</div>
+
+
+<!-- صفحه پشتیبانی -->
+<div id="support" class="page">
+
+<h1>پشتیبانی</h1>
+<p>روش ارتباط را انتخاب کنید</p>
+<div class="line"></div>
+
+<button class="option" onclick="page('phone')">
+تماس با پشتیبانی
+</button>
+
+<button class="option" onclick="page('ticket')">
+تیکت به پشتیبانی
+</button>
+
+<button onclick="page('home')">
+بازگشت
+</button>
+
+</div>
+
+
+<!-- تماس -->
+<div id="phone" class="page">
+
+<h1>تماس با پشتیبانی</h1>
+
+<div class="big">
+شماره پشتیبانی :<br>
++989360309484
+</div>
+
+<button onclick="page('support')">
+بازگشت
+</button>
+
+</div>
+
+
+<!-- تیکت -->
+<div id="ticket" class="page">
+
+<h1>تیکت به پشتیبانی</h1>
+
+<div class="big">
+پشتیبانی در روبیکا :<br>
+@Helper_TitanMC
+</div>
+
+<button onclick="page('support')">
+بازگشت
+</button>
+
+</div>
+
+
+<script>
+
+function page(id){
+document.querySelectorAll('.page')
+.forEach(x=>x.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function copyIP(){
+
+let ip='titanmc-srv-sever.play.mihancraft.com:25566';
+let b=document.querySelector('.copy');
+
+navigator.clipboard.writeText(ip)
+.then(()=>{
+b.innerText='کپی شد ✓';
+b.classList.add('ok');
+setTimeout(()=>{
+b.innerText='کپی IP';
+b.classList.remove('ok');
+},2000);
+})
+.catch(()=>{
+alert('کپی نشد، IP را دستی کپی کنید:\n'+ip);
+});
+
+}
+
+</script>
+
+</body>
+</html>
